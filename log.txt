@@ -1,2 +1,0 @@
-spotify-this-song,i,want,it,that,way my-tweets my-tweets spotify-this-song,back,dat,ass,up movie-this,youve got mail
-node liri.js movie-this youve,got,mail movie-this,you,got,mail movie-this,jumanji 

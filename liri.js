@@ -171,10 +171,10 @@ else if(nodeArgs[2] === "do-what-it-says"){
 			return console.log(error);
 		}
 		// // Then split it by commas (to make it more readable)
-		dataArr = data.split(',');
-		
-        // console.log(dataArr[1]);
-	
+        dataArr = data.split(',');
+		var spotify = new Spotify(keyCodes.spotify);
+    //     console.log();
+	// console.log(spotify);
         spotify.search({ type: 'track', query: dataArr[1], limit: 1}, function(err, data) {
             if (err) {
                 return console.log('Error occurred: ' + err);
