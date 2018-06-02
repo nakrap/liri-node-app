@@ -130,6 +130,10 @@ else if(nodeArgs[2] === "movie-this"){
         }
     }
     
+    if (!movieName){
+        movieName = 'Mr. Nobody';
+    }
+
     // Run a request to the OMDB API with the movie specified
     var queryUrl = "http://www.omdbapi.com/?t=" + movieName + "&y=&plot=short&apikey=trilogy";
 
@@ -161,8 +165,42 @@ else if(nodeArgs[2] === "movie-this"){
 
 //------------------DWIS---------------------------DWIS----------------------------DWIS------------------------------//
 else if(nodeArgs[2] === "do-what-it-says"){
-
+    var dataArr;
+	 fs.readFile("random.txt", "utf8", function(error, data) {
+		if(error){
+			return console.log(error);
+		}
+		// // Then split it by commas (to make it more readable)
+		dataArr = data.split(',');
+		
+        // console.log(dataArr[1]);
+	
+        spotify.search({ type: 'track', query: dataArr[1], limit: 1}, function(err, data) {
+            if (err) {
+                return console.log('Error occurred: ' + err);
+            }else {
+                var songInfo = data.tracks.items[0];
+                console.log("==============================================");
+                console.log("");
+                console.log("Artist: " + songInfo.artists[0].name);
+                console.log("Song Title: " + songInfo.name);
+                console.log("Album Name: " + songInfo.album.name);
+                console.log("Preview URL: " + songInfo.preview_url);
+                console.log("");
+                console.log("==============================================");
+            }
+        });
+    });    
 };
+
+var nodeArgs = process.argv;
+var myArgs = process.argv.slice(2);
+
+	fs.appendFile( "log.txt", myArgs + " ", function(err) {
+		if(err){
+			console.log(err);
+		}
+	}); 
 
 
 
