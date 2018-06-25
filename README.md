@@ -12,18 +12,15 @@ When the user opens the file liri.js in the terminal, user is allowed the follow
 
 
 ## How it Works:
-```
+
 1. **my-tweets:** Will return Twitter's last 20 tweets with the search parameter of "startups."
-```
-```
+
 2. **spotify-this-song *any song title*:** Will search Spotify for the song that the user entered, and return specific info.
-```
-```
+
 3. **movie-this *any movie title*:** Will search IMDB for the movie that the user entered, and return specific info.
-```
-```
+
 4. **do-what-it-says:** Will look for the .txt file and search Spotify for whatever is in it, and return specific info.
-```
+
 
 
 ## Deployment:
